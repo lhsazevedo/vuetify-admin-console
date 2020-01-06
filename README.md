@@ -1,4 +1,10 @@
-# vuetify-google-admin
+# Vuetify Google Admin
+
+A Google Admin like dashboard app template
+
+Demo: soon
+
+*For now the interface is only available in Brazilian Portuguese.*
 
 ## Project setup
 ```
