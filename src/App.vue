@@ -1,32 +1,81 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-navigation-drawer
+      v-model="drawer"
+      temporary
+      app
+    >
+      <div class="title py-4 pl-6 text--secondary">
+        Vuetify Admin
+      </div>
+
+      <v-list dense class="mt-4">
+        <v-list-item v-for="item in nav" :key="item.title" @click="item.action">
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar
+      app
+      color="primary"
+      dark
+      flat
+    >
+      <v-app-bar-nav-icon
+        @click="drawer = !drawer"
+      />
+
+      <v-toolbar-title class="mr-8" style="opacity: .87;">Vuetify Admin</v-toolbar-title>
+      <v-text-field
+        flat
+        solo-inverted
+        hide-details
+        prepend-inner-icon="mdi-magnify"
+        label="Pesquise usuários, grupos ou configurações"
+        class="hidden-sm-and-down"
+      />
+
+      <v-spacer></v-spacer>
+    </v-app-bar>
+
+    <v-content>
+      <v-sheet class="body-2 d-flex align-center black--text pl-5" height="32" elevation="4">
+        Admin Console
+      </v-sheet>
+      <router-view />
+    </v-content>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  name: 'App',
 
-#nav {
-  padding: 30px;
+  data: () => ({
+    drawer: false,
+    nav: [
+      {
+        title: 'Pessoal',
+        icon: 'mdi-home',
+        action: () => this.nop
+      }, {
+        title: 'Painel de controle',
+        icon: 'mdi-view-dashboard',
+        action: () => this.nop
+      }
+    ]
+  }),
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  methods: {
+    nop () {
+      // nothing
     }
   }
 }
-</style>
+</script>
