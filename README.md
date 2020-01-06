@@ -2,7 +2,7 @@
 
 A Google Admin like dashboard app template
 
-Demo: soon
+Demo: https://lhsazevedo.github.io/vuetify-google-admin/
 
 *For now the interface is only available in Brazilian Portuguese.*
 
