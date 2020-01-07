@@ -10,7 +10,7 @@
       </div>
 
       <v-list dense class="mt-4">
-        <v-list-item v-for="item in nav" :key="item.title" @click="item.action">
+        <v-list-item v-for="item in nav" :key="item.title" :to="item.to">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -63,11 +63,15 @@ export default {
       {
         title: 'Pessoal',
         icon: 'mdi-home',
-        action: () => this.nop
+        to: '/'
       }, {
         title: 'Painel de controle',
         icon: 'mdi-view-dashboard',
-        action: () => this.nop
+        to: '/dashboard'
+      }, {
+        title: 'Usuários',
+        icon: 'mdi-account',
+        to: { name: 'users' }
       }
     ]
   }),

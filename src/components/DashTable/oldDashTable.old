@@ -1,0 +1,92 @@
+import VDataTable from 'vuetify/lib/components/VDataTable/VDataTable'
+import VBtn from 'vuetify/lib/components/VBtn/VBtn'
+import VIcon from 'vuetify/lib/components/VIcon/VIcon'
+import Vue from 'vue'
+
+export default Vue.component(
+  'dash-table',
+  {
+    props: {
+      title: String,
+      subtitle: String,
+      topActions: Array
+    },
+
+    methods: {
+      genTop () {
+        return [this.$createElement(
+          'div',
+          {
+            class: {
+              'dash-table__header': true,
+              'grey': true,
+              'lighten-4': true,
+              'py-2': true,
+              'px-5': true,
+              'd-flex': true,
+              'align-center': true
+            }
+          },
+          [
+            [
+              this.$createElement(
+                'span',
+                {
+                  class: {
+                    'subtitle-1': true,
+                    'font-weight-medium': true
+                  }
+                },
+                this.title
+              )
+            ],
+            this.$createElement(
+              'div',
+              {
+                class: {
+                  'ml-auto': true
+                }
+              },
+              this.topActions.map(action => {
+                return this.$createElement(
+                  VBtn,
+                  {
+                    props: {
+                      color: 'primary',
+                      text: true
+                    }
+                  },
+                  [
+                    this.$createElement(
+                      VIcon,
+                      {
+                        props: {
+                          left: true
+                        }
+                      },
+                      action.icon
+                    ),
+                    action.text
+                  ]
+                )
+              })
+            )
+          ]
+        )]
+      }
+    },
+    render () {
+      return this.$createElement(
+        VDataTable,
+        {
+          attrs: this.$attrs
+        },
+        [this.$createElement(
+          'template',
+          { slot: 'top' },
+          this.genTop()
+        )]
+      )
+    }
+  }
+)
