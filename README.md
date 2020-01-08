@@ -3,7 +3,7 @@
     <img src=".github/assets/logo.svg" alt="Vuetify Admin Console" width="500" />
   </a>
 </p>
-<p align="center">A Google Admin like dashboard app template</p>
+<p align="center">A work-in-progress Google Admin like dashboard app template</p>
 
 ## Demo
 Demo: https://lhsazevedo.github.io/vuetify-admin-console/
