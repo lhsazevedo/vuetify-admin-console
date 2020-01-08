@@ -1,8 +1,12 @@
-# Vuetify Google Admin
+<p align="center">
+  <a href="#">
+    <img src=".github/assets/logo.svg" alt="Vuetify Admin Console" width="500" />
+  </a>
+</p>
+<p align="center">A Google Admin like dashboard app template</p>
 
-A Google Admin like dashboard app template
-
-Demo: https://lhsazevedo.github.io/vuetify-google-admin/
+## Demo
+Demo: https://lhsazevedo.github.io/vuetify-admin-console/
 
 *For now the interface is only available in Brazilian Portuguese.*
 
