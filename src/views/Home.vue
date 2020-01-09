@@ -21,7 +21,7 @@
 
 <script>
 // @ is an alias to /src
-import PanelCard from '@/components/PanelCard/PanelCard.vue'
+import PanelCard from '@/components/PanelCard/PanelCard.js'
 
 export default {
   name: 'home',

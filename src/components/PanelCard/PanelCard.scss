@@ -1,0 +1,48 @@
+@import './node_modules/vuetify/src/styles/styles.sass';
+
+.panel-card {
+  text-decoration: none;
+
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.panel-card__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 5px;
+  
+  // text-decoration-color: unset;
+  text-align: center;
+  // width: 130px;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+.panel-card__title {
+  font-size: map-deep-get($headings, 'subtitle-1', 'size');
+  font-weight: map-get($font-weights, 'bold');
+  letter-spacing: map-deep-get($headings, 'subtitle-1', 'letter-spacing');
+  line-height: map-deep-get($headings, 'subtitle-1', 'line-height');
+}
+
+.panel-card__description {
+  font-size: map-deep-get($headings, 'body-2', 'size');
+  font-weight: map-deep-get($headings, 'body-2', 'weight');
+  letter-spacing: map-deep-get($headings, 'body-2', 'letter-spacing');
+  line-height: map-deep-get($headings, 'body-2', 'line-height');
+  color: map-get($grey, 'darken-2');
+}
+
+.panel-card__title, .panel-card__description {
+  max-width: 130px;
+}
+
+// .panel-card__description {
+//   font-size: 12px;
+// }
