@@ -1,4 +1,10 @@
+@import './node_modules/vuetify/src/styles/styles.sass';
+
 $font-size-root: 14px;
+
+$material-light: (
+  'background': map-get($grey, 'lighten-3'),
+);
 
 $headings: (
   'body-1': (
