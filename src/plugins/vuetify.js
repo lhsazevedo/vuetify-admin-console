@@ -10,5 +10,14 @@ export default new Vuetify({
         primary: '#3367d6'
       }
     }
+  },
+
+  breakpoint: {
+    thresholds: {
+      xs: 720,
+      sm: 1024,
+      md: 1280,
+      lg: 1600
+    }
   }
 })
