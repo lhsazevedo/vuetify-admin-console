@@ -3,6 +3,9 @@
     <img src=".github/assets/logo.svg" alt="Vuetify Admin Console" width="500" />
   </a>
 </p>
+<p align="center">
+  <img src="https://travis-ci.com/lhsazevedo/vuetify-admin-console.svg?branch=master" alt="Build status" />
+</p>
 <p align="center">A work-in-progress Google Admin like dashboard app template</p>
 
 ## Demo
