@@ -27,6 +27,7 @@
 .panel-card__title {
   font-size: map-deep-get($headings, 'subtitle-1', 'size');
   font-weight: map-get($font-weights, 'bold');
+  padding-top: 20px;
   letter-spacing: map-deep-get($headings, 'subtitle-1', 'letter-spacing');
   line-height: map-deep-get($headings, 'subtitle-1', 'line-height');
 }
@@ -34,6 +35,7 @@
 .panel-card__description {
   font-size: map-deep-get($headings, 'body-2', 'size');
   font-weight: map-deep-get($headings, 'body-2', 'weight');
+  margin-top: 4px;
   letter-spacing: map-deep-get($headings, 'body-2', 'letter-spacing');
   line-height: map-deep-get($headings, 'body-2', 'line-height');
   color: map-get($grey, 'darken-2');
