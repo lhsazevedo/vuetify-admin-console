@@ -45,7 +45,7 @@
     </v-app-bar>
 
     <v-content>
-      <v-sheet class="body-2 d-flex align-center black--text pl-5" height="32" elevation="4">
+      <v-sheet class="breadcrub-sheet d-flex align-center black--text pl-5" height="32">
         Admin Console
       </v-sheet>
       <router-view />
@@ -83,3 +83,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .breadcrub-sheet {
+    box-shadow: 0 8px 10px -9px rgba(0,0,0,.05), 0 3px 14px 2px rgba(0,0,0,.01), 0 5px 5px -3px rgba(0,0,0,.05);
+  }
+</style>
