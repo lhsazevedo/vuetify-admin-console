@@ -1,18 +1,20 @@
 <template>
-  <v-container>
+  <v-container fluid class="px-6 px-sm-12">
     <v-row class="home-panels-grid">
       <v-col
         v-for="card in cards"
         :key="card.title"
         class="d-flex flex-column align-center"
         :class="{ 'home-panels-grid__col--custom-col': $vuetify.breakpoint.lgAndUp }"
-        cols="2"
+        cols="6"
+        sm="4"
+        md="3"
       >
         <panel-card
           :icon="card.icon"
           :title="card.title"
           :description="card.description"
-          :action="card.action"
+          :to="card.action"
         />
       </v-col>
     </v-row>
