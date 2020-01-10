@@ -1,9 +1,9 @@
 <template>
-  <v-container>
+  <v-container fluid class="px-6 px-sm-12">
     <div class="mx-auto" style="max-width: 1600px;">
       <v-card outlined>
         <dash-table
-          title="Alunos"
+          title="Usuários"
           subtitle="Mostrando todos os usuários"
           :topActions="topActions"
         />
