@@ -32,12 +32,12 @@ export default {
   },
   data: () => ({
     cards: [
-      {
+      /*{
         icon: '//www.gstatic.com/apps/cpanel/resources/img/dashboard-googblue-48.png',
         title: 'Painel de controle',
         description: 'Ver insights relevantes sobre sua organização',
         action: '/'
-      }, {
+      },*/ {
         icon: '//www.gstatic.com/apps/cpanel/resources/img/people-quantum-48.svg',
         title: 'Usuários',
         description: 'Adicionar ou gerenciar usuários',
