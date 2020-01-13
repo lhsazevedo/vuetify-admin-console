@@ -5,7 +5,7 @@
         <action-table
           title="Usuários"
           subtitle="Mostrando todos os usuários"
-          :topActions="topActions"
+          :actions="actions"
           :items="users"
           :headers="headers"
           show-select
@@ -33,13 +33,15 @@ export default {
     ActionTable
   },
   data: () => ({
-    topActions: [
+    actions: [
       {
         text: 'Adicionar usuário'
       }, {
         text: 'Fazer upload em massa de usuários'
       }, {
         text: 'Fazer download de usuários'
+      }, {
+        text: 'Mais uma ação'
       }
     ],
 

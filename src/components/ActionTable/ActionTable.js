@@ -1,7 +1,10 @@
+// Style
+import './ActionTable.scss'
+
 // Components
 import { VDataTable } from 'vuetify/lib/components/VDataTable'
 import { VDivider } from 'vuetify/lib/components/VDivider'
-import ActionTableHeading from './ActionTableHeading'
+import ActionTableHeader from './ActionTableHeader'
 
 import Vue from 'vue'
 
@@ -9,20 +12,11 @@ import Vue from 'vue'
 
 export default Vue.component('action-table', {
   props: {
-    title: String,
-    subtitle: String
   },
 
   methods: {
     genActionHeader () {
-      const heading = this.$createElement(ActionTableHeading, {
-        attrs: {
-          title: this.title,
-          subtitle: this.subtitle
-        }
-      })
-
-      return [ heading ]
+      return this.$createElement(ActionTableHeader, { attrs: this.$attrs })
     },
 
     genTable () {

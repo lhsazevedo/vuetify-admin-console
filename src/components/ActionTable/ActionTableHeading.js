@@ -1,9 +1,6 @@
 // Helpers
 import Vue from 'vue'
 
-// Components
-import { VCardText } from 'vuetify/lib/components/VCard'
-
 export default Vue.extend({
   name: 'dash-table-heading',
 
@@ -25,8 +22,7 @@ export default Vue.extend({
         class: {
           'subtitle-1': true,
           'font-weight-medium': true,
-          'text--secondary': true,
-          'mr-6': true
+          'text--secondary': true
         }
       }
 
@@ -56,12 +52,10 @@ export default Vue.extend({
   render (h) {
     const data = {
       class: {
-        'dash-table-heading': true,
-        'grey': true,
-        'lighten-4': true
+        'action-table__heading': true
       }
     }
 
-    return h(VCardText, data, this.genContent())
+    return h('div', data, this.genContent())
   }
 })
