@@ -1,6 +1,7 @@
-import VBtn from 'vuetify/lib/components/VBtn'
+import ActionButton from '@/components/ActionButton/ActionButton'
 import VMenu from 'vuetify/lib/components/VMenu'
 import VIcon from 'vuetify/lib/components/VIcon'
+import { VList, VListItem, VListItemTitle } from 'vuetify/lib/components/VList'
 import ActionTableHeading from './ActionTableHeading'
 
 import Vue from 'vue'
@@ -11,59 +12,59 @@ export default Vue.component('action-table-header', {
   },
 
   methods: {
-    genActions () {
-      return this.actions.slice(0, 3).map(action => {
+    genInlineActions () {
+      const children = this.actions.slice(0, 3).map(action => {
         return this.$createElement(
-          VBtn, {
-            class: {
-              'action-table__button': true,
-              'font-weight-regular': true,
-              'text-none': true
-            },
-            attrs: {
-              text: true,
-              color: 'primary'
-            }
-          }, action.text
+          ActionButton, action.text
         )
       })
+
+      return this.$createElement('div', {
+        class: { 'action-table__inline-actions': true }
+      }, children)
     },
 
     genMoreActions () {
       const MenuElement = this.$createElement(VMenu, {
+        attrs: {
+          'offset-y': true
+        },
+
         scopedSlots: {
           activator: ({ on }) => {
-            return this.$createElement(VBtn, {
-              class: {
-                'action-table__button': true,
-                'font-weight-regular': true,
-                'text-none': true
-              },
-              attrs: {
-                text: true,
-                color: 'primary'
-              },
+            const data = {
               on: on
-            }, [
+            }
+
+            const icon = this.$createElement(VIcon, {
+              attrs: {
+                right: true,
+                size: 'x-large'
+              }
+            }, 'mdi-menu-down')
+
+            const children = [
               'Mais',
-              this.$createElement(VIcon, {
-                attrs: {
-                  right: true
-                }
-              }, 'mdi-menu-down')
-            ])
+              icon
+            ]
+
+            return this.$createElement(ActionButton, data, children)
           },
-          default: () => this.$createElement('div', 'ola')
+
+          default: () => this.genMoreActionsList()
         }
       })
 
-      return [
-        MenuElement
-      ]
+      return [ MenuElement ]
+    },
 
-      // return this.actions.slice(3).map(action => {
-      //   return this.$createElement(VSelect)
-      // })
+    genMoreActionsList () {
+      const listItemsNodes = this.actions.slice(3).map(action => {
+        const titleNode = this.$createElement(VListItemTitle, action.text)
+        return this.$createElement(VListItem, [titleNode])
+      })
+
+      return this.$createElement(VList, listItemsNodes)
     },
 
     genActionGroup () {
@@ -73,13 +74,11 @@ export default Vue.component('action-table-header', {
           'd-flex': true
         }
       }
-      const actions = this.genActions()
-      const children = [
-        actions
-      ]
+      const actions = this.genInlineActions()
+      const children = [ actions ]
 
       if (this.actions.length > 3) {
-        actions.push(this.genMoreActions())
+        children.push(this.genMoreActions())
       }
 
       return this.$createElement('div', data, children)

@@ -11,7 +11,39 @@ import Vue from 'vue'
 // import { getSlot } from 'vuetify/lib/util/helpers'
 
 export default Vue.component('action-table', {
-  props: {
+  // props: {
+  //   actions: Array,
+  //   title: String,
+  //   subtitle: String,
+  //   items: Array
+  // },
+
+  data () {
+    return {
+      selection: []
+    }
+  },
+
+  computed: {
+    classes () {
+      return {
+        'action-table--has-selection': this.hasSelection
+      }
+    },
+
+    hasSelection () {
+      return this.selection.length > 0
+    },
+
+    // eslint-disable-next-line
+    doNothing () {
+      // console.log(this.selection)
+      // nothing
+    }
+  },
+
+  class: {
+    'action-table': true
   },
 
   methods: {
@@ -20,14 +52,35 @@ export default Vue.component('action-table', {
     },
 
     genTable () {
-      return this.$createElement(VDataTable.extend({
-        // extend
-      }))
+      // const dataTable = VDataTable.extend({
+      //   // extend
+      // })
+
+      return this.$createElement(
+        VDataTable,
+        {
+          attrs: this.$attrs,
+          on: {
+            input: (selection) => {
+              // console.log(selection, Object.assign({}, selection))
+              // this.$set(this.selection, selection)
+              this.selection = selection
+            }
+          }
+        }
+      )
     }
   },
 
   render (h) {
-    return h('div', [
+    // eslint-disable-next-line
+    // this.doNothing
+    // const a = this.hasSelection
+    const data = {
+      class: this.classes
+    }
+
+    return h('div', data, [
       this.genActionHeader(),
       h(VDivider),
       this.genTable()

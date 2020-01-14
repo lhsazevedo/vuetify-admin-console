@@ -41,7 +41,7 @@ export default {
       }, {
         text: 'Fazer download de usuários'
       }, {
-        text: 'Mais uma ação'
+        text: 'Gerenciar atributos personalizados'
       }
     ],
 

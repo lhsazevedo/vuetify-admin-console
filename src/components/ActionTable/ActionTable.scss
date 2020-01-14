@@ -25,30 +25,40 @@
   padding: 16px;
 }
 
-.action-table__actions {
-  padding: 16px;
-  display: flex;
+.action-table__inline-actions {
   flex: 1 1 auto;
   min-width: 0;
+
+  .action-table__button {
+    // letter-spacing: 0;
+    padding: 0 8px !important;
+    margin: 0 4px !important;
+    min-width: 40px !important;
+  
+    &, .v-btn_content {
+      flex-shrink: 1;
+    }
+  
+    .v-btn__content {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      display: block;
+      flex-shrink: 1;
+      // min-width: 0 !important;
+    }
+  }
 }
 
-.action-table__button {
-  letter-spacing: 0;
-  padding: 0 8px !important;
-  margin: 0 4px;
-  min-width: 40px;
+.action-table__actions {
+  padding: 0 16px;
+  display: flex;
 
-  &, .v-btn_content {
-    flex-shrink: 1;
-  }
-
-  .v-btn__content {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    display: block;
-    flex-shrink: 1;
-    // min-width: 0 !important;
+  .action-table__button {
+    letter-spacing: 0;
+    padding: 0 8px !important;
+    margin: 0 4px;
+    // min-width: 40px;
   }
 }
 
