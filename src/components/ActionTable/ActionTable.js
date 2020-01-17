@@ -4,11 +4,12 @@ import './ActionTable.scss'
 // Components
 import { VDataTable } from 'vuetify/lib/components/VDataTable'
 import { VDivider } from 'vuetify/lib/components/VDivider'
+import { VSimpleCheckbox } from 'vuetify/lib/components/VCheckbox'
 import ActionTableHeader from './ActionTableHeader'
 
 import Vue from 'vue'
 
-// import { getSlot } from 'vuetify/lib/util/helpers'
+import ripple from 'vuetify/lib/directives/ripple'
 
 export default Vue.component('action-table', {
   // props: {
@@ -24,6 +25,10 @@ export default Vue.component('action-table', {
     }
   },
 
+  directives: {
+    ripple
+  },
+
   computed: {
     classes () {
       return {
@@ -33,56 +38,86 @@ export default Vue.component('action-table', {
 
     hasSelection () {
       return this.selection.length > 0
-    },
-
-    // eslint-disable-next-line
-    doNothing () {
-      // console.log(this.selection)
-      // nothing
     }
-  },
-
-  class: {
-    'action-table': true
   },
 
   methods: {
     genActionHeader () {
-      return this.$createElement(ActionTableHeader, { attrs: this.$attrs })
+      const data = {
+        attrs: { ...this.$attrs }
+      }
+      return this.$createElement(ActionTableHeader, data)
+    },
+
+    // genDataTableContent () {
+    // },
+
+    genSelectAll (data) {
+      return this.$createElement(VSimpleCheckbox, {
+        ...data,
+        props: {
+          ...data.props,
+          color: 'primary'
+        }
+      })
+    },
+
+    genItemSelect (data) {
+      return this.$createElement(VSimpleCheckbox, {
+        staticClass: 'v-data-table__checkbox',
+        props: {
+          value: data.isSelected,
+          color: 'primary'
+        },
+        on: {
+          input: (val) => data.select(val)
+        }
+      })
     },
 
     genTable () {
-      // const dataTable = VDataTable.extend({
-      //   // extend
-      // })
+      const data = {
+        attrs: { ...this.$attrs },
+
+        on: {
+          input: (selection) => {
+            this.selection = selection
+          }
+        },
+
+        scopedSlots: {
+          'header.data-table-select': (data) => {
+            return [
+              this.genSelectAll(data)
+            ]
+          },
+          'item.data-table-select': (props) => {
+            return [
+              this.genItemSelect(props)
+            ]
+          },
+          ...this.$scopedSlots
+        }
+      }
 
       return this.$createElement(
         VDataTable,
-        {
-          attrs: this.$attrs,
-          on: {
-            input: (selection) => {
-              // console.log(selection, Object.assign({}, selection))
-              // this.$set(this.selection, selection)
-              this.selection = selection
-            }
-          }
-        }
+        data
       )
     }
   },
 
-  render (h) {
-    // eslint-disable-next-line
-    // this.doNothing
-    // const a = this.hasSelection
+  render () {
     const data = {
-      class: this.classes
+      class: {
+        ...this.classes,
+        'action-table': true
+      }
     }
 
-    return h('div', data, [
+    return this.$createElement('div', data, [
       this.genActionHeader(),
-      h(VDivider),
+      this.$createElement(VDivider),
       this.genTable()
     ])
   }
@@ -140,12 +175,10 @@ export default Vue.component('action-table', {
 //   //   this.scopedSlots['data-table-select'] = function (props) {
 //   //     createElement('div', 'F')
 //   //   }
-//   //   console.log(this.scopedSlots)
 //   // }
 
 //   scopedSlots: {
 //     'data-table-select': (a) => {
-//       console.log('oi')
 //       return this.$createElement('div', 'F')
 //     }
 //   }

@@ -1,4 +1,4 @@
-import ActionButton from '@/components/ActionButton/ActionButton'
+import ActionTableButton from './ActionTableButton'
 import VMenu from 'vuetify/lib/components/VMenu'
 import VIcon from 'vuetify/lib/components/VIcon'
 import { VList, VListItem, VListItemTitle } from 'vuetify/lib/components/VList'
@@ -15,7 +15,7 @@ export default Vue.component('action-table-header', {
     genInlineActions () {
       const children = this.actions.slice(0, 3).map(action => {
         return this.$createElement(
-          ActionButton, action.text
+          ActionTableButton, action.text
         )
       })
 
@@ -27,7 +27,8 @@ export default Vue.component('action-table-header', {
     genMoreActions () {
       const MenuElement = this.$createElement(VMenu, {
         attrs: {
-          'offset-y': true
+          'offset-y': true,
+          'left': true
         },
 
         scopedSlots: {
@@ -48,7 +49,7 @@ export default Vue.component('action-table-header', {
               icon
             ]
 
-            return this.$createElement(ActionButton, data, children)
+            return this.$createElement(ActionTableButton, data, children)
           },
 
           default: () => this.genMoreActionsList()
@@ -70,8 +71,7 @@ export default Vue.component('action-table-header', {
     genActionGroup () {
       const data = {
         class: {
-          'action-table__actions': true,
-          'd-flex': true
+          'action-table__actions': true
         }
       }
       const actions = this.genInlineActions()
