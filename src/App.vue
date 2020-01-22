@@ -67,11 +67,11 @@ export default {
         title: 'Pessoal',
         icon: 'mdi-home',
         to: '/'
-      },/* {
+      }, /* {
         title: 'Painel de controle',
         icon: 'mdi-view-dashboard',
         to: '/dashboard'
-      },*/ {
+      }, */ {
         title: 'Usuários',
         icon: 'mdi-account',
         to: { name: 'users' }
