@@ -1,18 +1,25 @@
 @import '~vuetify/src/styles/styles.sass';
 
 .action-table {
+  &.action-table--has-selection {
+    .action-table__header {
+      background-color: #e8f0fe;
+    }
+  }
+
   td {
     .router-link-active {
       text-decoration: none;
     }
   }
 
-  .theme--light.v-data-table tbody tr:hover:not(.v-data-table__expanded__content) {
-    // background-color: rgba(#3367d6, 0.15); // $primary
+  tr.v-data-table__selected {
+    background-color: #e8f0fe !important;
   }
 }
 
 .action-table__header {
+  background-color: map-get($grey, 'lighten-4');
   display: flex;
   align-items: center;
 }
@@ -34,6 +41,10 @@
 
   .action-table__button {
     flex: 0 1 auto;
+
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
   }
 
   .v-btn__content {

@@ -2,22 +2,26 @@
 import './ActionTable.scss'
 
 // Components
-import { VDataTable } from 'vuetify/lib/components/VDataTable'
 import { VDivider } from 'vuetify/lib/components/VDivider'
 import { VSimpleCheckbox } from 'vuetify/lib/components/VCheckbox'
 import ActionTableHeader from './ActionTableHeader'
+import VDataTable from 'vuetify/lib/components/VDataTable/VDataTable'
 
 import Vue from 'vue'
 
 import ripple from 'vuetify/lib/directives/ripple'
 
 export default Vue.component('action-table', {
-  // props: {
-  //   actions: Array,
-  //   title: String,
-  //   subtitle: String,
-  //   items: Array
-  // },
+  props: {
+    actions: {
+      type: Array,
+      default: () => []
+    },
+    groupActions: {
+      type: Array,
+      default: () => []
+    }
+  },
 
   data () {
     return {
@@ -44,7 +48,10 @@ export default Vue.component('action-table', {
   methods: {
     genActionHeader () {
       const data = {
-        attrs: { ...this.$attrs }
+        attrs: {
+          ...this.$attrs,
+          actions: this.hasSelection ? this.groupActions : this.actions
+        }
       }
       return this.$createElement(ActionTableHeader, data)
     },
@@ -80,7 +87,11 @@ export default Vue.component('action-table', {
         attrs: { ...this.$attrs },
 
         on: {
+          ...this.$listeners,
           input: (selection) => {
+            if (this.$listeners.input) {
+              this.$listeners.input(selection)
+            }
             this.selection = selection
           }
         },

@@ -45,7 +45,7 @@ export default Vue.component('action-table-header', {
             }, 'mdi-menu-down')
 
             const children = [
-              'Mais',
+              'More',
               icon
             ]
 
@@ -98,9 +98,7 @@ export default Vue.component('action-table-header', {
   render (h) {
     return h('div', {
       class: {
-        'action-table__header': true,
-        'grey': true,
-        'lighten-4': true
+        'action-table__header': true
       }
     }, [
       this.genActionHeading()

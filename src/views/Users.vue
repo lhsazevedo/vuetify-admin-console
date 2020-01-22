@@ -3,11 +3,13 @@
     <div class="mx-auto" style="max-width: 1600px;">
       <v-card outlined>
         <action-table
-          title="Usuários"
-          subtitle="Mostrando todos os usuários"
+          title="Users"
+          subtitle="Showing all users"
           :actions="actions"
+          :groupActions="groupActions"
           :items="users"
           :headers="headers"
+          @input="onTableInput"
           show-select
         >
           <template v-slot:item.name="{ item }">
@@ -17,7 +19,8 @@
                 :alt="item.name"
               >
             </v-avatar>
-            <router-link :to="{name: 'user', params: {id: item.id}}" v-text="item.name" />
+            <router-link v-if="!someSelected" :to="{name: 'user', params: {id: item.id}}" v-text="item.name" />
+            <span v-else v-text="item.name" />
           </template>
         </action-table>
       </v-card>
@@ -32,16 +35,35 @@ export default {
   components: {
     ActionTable
   },
+
   data: () => ({
+    selection: [],
+
     actions: [
       {
-        text: 'Adicionar usuário'
+        text: 'Add user'
       }, {
-        text: 'Fazer upload em massa de usuários'
+        text: 'Bulk upload users'
       }, {
-        text: 'Fazer download de usuários'
+        text: 'Download users'
       }, {
-        text: 'Gerenciar atributos personalizados'
+        text: 'Manage custom attributes'
+      }
+    ],
+
+    groupActions: [
+      {
+        text: 'Send email to selected users'
+      }, {
+        text: 'Add selected users to groups'
+      }, {
+        text: 'Change organizational unit'
+      }, {
+        text: 'Delete selected users'
+      }, {
+        text: 'Assign licences'
+      }, {
+        text: 'Remove licenses'
       }
     ],
 
@@ -57,15 +79,268 @@ export default {
 
     users: [
       {
-        id: 1,
-        name: 'Jonh Doe',
-        email: 'john.doe@example.com'
-      }, {
-        id: 2,
-        name: 'Mary Doe',
-        email: 'mary.doe@example.com'
+        'id': 0,
+        'name': 'Ward Gaffer',
+        'email': 'ward.gaffer@example.com'
+      },
+      {
+        'id': 1,
+        'name': 'Amory Noot',
+        'email': 'amory.noot@example.com'
+      },
+      {
+        'id': 2,
+        'name': 'Ingra Maywood',
+        'email': 'ingra.maywood@example.com'
+      },
+      {
+        'id': 3,
+        'name': 'Etheline Carsey',
+        'email': 'etheline.carsey@example.com'
+      },
+      {
+        'id': 4,
+        'name': 'Ashil Alekseev',
+        'email': 'ashil.alekseev@example.com'
+      },
+      {
+        'id': 5,
+        'name': 'Zacherie Edser',
+        'email': 'zacherie.edser@example.com'
+      },
+      {
+        'id': 6,
+        'name': 'Nicole Ivimy',
+        'email': 'nicole.ivimy@example.com'
+      },
+      {
+        'id': 7,
+        'name': 'Tedmund Nertney',
+        'email': 'tedmund.nertney@example.com'
+      },
+      {
+        'id': 8,
+        'name': 'Johanna Dillistone',
+        'email': 'johanna.dillistone@example.com'
+      },
+      {
+        'id': 9,
+        'name': 'Winthrop Sore',
+        'email': 'winthrop.sore@example.com'
+      },
+      {
+        'id': 10,
+        'name': 'Madelena Irvine',
+        'email': 'madelena.irvine@example.com'
+      },
+      {
+        'id': 11,
+        'name': 'Hestia Gutherson',
+        'email': 'hestia.gutherson@example.com'
+      },
+      {
+        'id': 12,
+        'name': 'Borg St. Clair',
+        'email': 'borg.st..clair@example.com'
+      },
+      {
+        'id': 13,
+        'name': 'Paulette Hammelberg',
+        'email': 'paulette.hammelberg@example.com'
+      },
+      {
+        'id': 14,
+        'name': 'Corbet Brosi',
+        'email': 'corbet.brosi@example.com'
+      },
+      {
+        'id': 15,
+        'name': 'Goldy Wyness',
+        'email': 'goldy.wyness@example.com'
+      },
+      {
+        'id': 16,
+        'name': 'Sansone Baxstar',
+        'email': 'sansone.baxstar@example.com'
+      },
+      {
+        'id': 17,
+        'name': 'Vinita Stanbridge',
+        'email': 'vinita.stanbridge@example.com'
+      },
+      {
+        'id': 18,
+        'name': 'Willis Muriel',
+        'email': 'willis.muriel@example.com'
+      },
+      {
+        'id': 19,
+        'name': 'Cyndi Sheraton',
+        'email': 'cyndi.sheraton@example.com'
+      },
+      {
+        'id': 20,
+        'name': 'Fayth Schuler',
+        'email': 'fayth.schuler@example.com'
+      },
+      {
+        'id': 21,
+        'name': 'Lonny Razzell',
+        'email': 'lonny.razzell@example.com'
+      },
+      {
+        'id': 22,
+        'name': 'Brennen Latham',
+        'email': 'brennen.latham@example.com'
+      },
+      {
+        'id': 23,
+        'name': 'Phyllida Wasiela',
+        'email': 'phyllida.wasiela@example.com'
+      },
+      {
+        'id': 24,
+        'name': 'Gav Lopez',
+        'email': 'gav.lopez@example.com'
+      },
+      {
+        'id': 25,
+        'name': 'Fanny Arens',
+        'email': 'fanny.arens@example.com'
+      },
+      {
+        'id': 26,
+        'name': 'Ray Muncer',
+        'email': 'ray.muncer@example.com'
+      },
+      {
+        'id': 27,
+        'name': 'June Gregoletti',
+        'email': 'june.gregoletti@example.com'
+      },
+      {
+        'id': 28,
+        'name': 'Joscelin Wathan',
+        'email': 'joscelin.wathan@example.com'
+      },
+      {
+        'id': 29,
+        'name': 'Adrianna Vanichkin',
+        'email': 'adrianna.vanichkin@example.com'
+      },
+      {
+        'id': 30,
+        'name': 'Lance Bech',
+        'email': 'lance.bech@example.com'
+      },
+      {
+        'id': 31,
+        'name': 'Blanch O\' Brian',
+        'email': 'blanch.brian@example.com'
+      },
+      {
+        'id': 32,
+        'name': 'Kendal Cohen',
+        'email': 'kendal.cohen@example.com'
+      },
+      {
+        'id': 33,
+        'name': 'Rafi Armour',
+        'email': 'rafi.armour@example.com'
+      },
+      {
+        'id': 34,
+        'name': 'Orel Gwinnett',
+        'email': 'orel.gwinnett@example.com'
+      },
+      {
+        'id': 35,
+        'name': 'Sunshine Euplate',
+        'email': 'sunshine.euplate@example.com'
+      },
+      {
+        'id': 36,
+        'name': 'Gifford Brager',
+        'email': 'gifford.brager@example.com'
+      },
+      {
+        'id': 37,
+        'name': 'Marietta Chaperling',
+        'email': 'marietta.chaperling@example.com'
+      },
+      {
+        'id': 38,
+        'name': 'Giulia Batho',
+        'email': 'giulia.batho@example.com'
+      },
+      {
+        'id': 39,
+        'name': 'Cordey Denham',
+        'email': 'cordey.denham@example.com'
+      },
+      {
+        'id': 40,
+        'name': 'Wye Letch',
+        'email': 'wye.letch@example.com'
+      },
+      {
+        'id': 41,
+        'name': 'Carlen Champley',
+        'email': 'carlen.champley@example.com'
+      },
+      {
+        'id': 42,
+        'name': 'Paolo Tattershall',
+        'email': 'paolo.tattershall@example.com'
+      },
+      {
+        'id': 43,
+        'name': 'Boothe Barrable',
+        'email': 'boothe.barrable@example.com'
+      },
+      {
+        'id': 44,
+        'name': 'Tessa Tuffrey',
+        'email': 'tessa.tuffrey@example.com'
+      },
+      {
+        'id': 45,
+        'name': 'Vinson Ahrens',
+        'email': 'vinson.ahrens@example.com'
+      },
+      {
+        'id': 46,
+        'name': 'Ellwood Tomley',
+        'email': 'ellwood.tomley@example.com'
+      },
+      {
+        'id': 47,
+        'name': 'Minette O\'Nion',
+        'email': 'minette.nion@example.com'
+      },
+      {
+        'id': 48,
+        'name': 'Roxane Doding',
+        'email': 'roxane.doding@example.com'
+      },
+      {
+        'id': 49,
+        'name': 'Richart Mycock',
+        'email': 'richart.mycock@example.com'
       }
     ]
-  })
+  }),
+
+  computed: {
+    someSelected () {
+      return this.selection.length > 0
+    }
+  },
+
+  methods: {
+    onTableInput (selection) {
+      this.selection = selection
+    }
+  }
 }
 </script>
