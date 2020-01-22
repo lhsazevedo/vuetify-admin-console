@@ -31,7 +31,10 @@
         @click="drawer = !drawer"
       />
 
-      <v-toolbar-title class="mr-8" style="opacity: .87;">Vuetify Admin</v-toolbar-title>
+      <router-link class="ml-4" to="/" tag="button">
+        <v-toolbar-title class="mr-8" style="opacity: .87;">Vuetify Admin</v-toolbar-title>
+      </router-link>
+
       <v-text-field
         flat
         solo-inverted

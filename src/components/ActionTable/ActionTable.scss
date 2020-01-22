@@ -1,0 +1,156 @@
+@import '~vuetify/src/styles/styles.sass';
+
+.action-table {
+  &.action-table--has-selection {
+    .action-table__header {
+      background-color: #e8f0fe;
+    }
+  }
+
+  td {
+    .router-link-active {
+      text-decoration: none;
+    }
+  }
+
+  tr.v-data-table__selected {
+    background-color: #e8f0fe !important;
+  }
+}
+
+.action-table__header {
+  background-color: map-get($grey, 'lighten-4');
+  display: flex;
+  align-items: center;
+}
+
+.action-table__heading {
+  padding: 16px;
+  min-width: 250px;
+}
+
+.action-table__actions {
+  padding: 16px;
+  display: flex;
+  min-width: 0;
+}
+
+.action-table__inline-actions {
+  display: flex;
+  min-width: 0;
+
+  .action-table__button {
+    flex: 0 1 auto;
+
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+
+  .v-btn__content {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex: 1 1 auto;
+    white-space: nowrap;
+    display: inline-block;
+    min-width: 0 !important;
+  }
+}
+
+.action-table__button {
+  letter-spacing: 0;
+
+  .v-btn__content {
+  }
+}
+
+// .action-table__title-wrapper {
+//   display: flex;
+//   flex: 0 0 auto;
+//   max-width: 40%;
+// }
+
+// .action-table__header {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .action-table__heading {
+//   padding: 16px;
+// }
+
+// .action-table__inline-actions {
+//   flex: 1 1 auto;
+//   min-width: 0;
+
+//   .action-table__button {
+//     // letter-spacing: 0;
+//     padding: 0 8px !important;
+//     margin: 0 4px !important;
+//     min-width: 40px !important;
+  
+//     &, .v-btn_content {
+//       flex-shrink: 1;
+//     }
+  
+//     .v-btn__content {
+//       text-overflow: ellipsis;
+//       overflow: hidden;
+//       white-space: nowrap;
+//       display: block;
+//       flex-shrink: 1;
+//       // min-width: 0 !important;
+//     }
+//   }
+// }
+
+// .action-table__actions {
+//   padding: 0 16px;
+//   display: flex;
+// }
+
+// .action-table__button {
+//   letter-spacing: 0;
+//   padding: 0 8px !important;
+//   margin: 0 4px;
+// }
+
+// .action-table__button {
+//   letter-spacing: 0;
+//   padding: 0 8px !important;
+//   margin: 0 4px;
+//   // min-width: 0;
+// }
+
+// .v-btn {
+
+// }
+
+// .v-btn, .v-btn__content {
+//   flex-shrink: 1;
+// }
+
+// .v-btn__content {
+//   text-overflow: ellipsis;
+//   overflow: hidden;
+//   white-space: nowrap;
+//   display: block;
+//   min-width: 0 !important;
+// }
+
+//   .v-btn {
+
+//   }
+
+//   .v-btn, .v-btn__content {
+//     flex-shrink: 1;
+//   }
+
+//   .v-btn__content {
+//     text-overflow: ellipsis;
+//     overflow: hidden;
+//     white-space: nowrap;
+//     display: block;
+//     min-width: 0 !important;
+//   }
+// }
