@@ -1,0 +1,80 @@
+.RM9ulf {
+    visibility: hidden;
+    position: fixed;
+    z-index: 5000;
+    color: #fff;
+    pointer-events: none
+}
+
+.RM9ulf.catR2e {
+    max-width: 90%;
+    max-height: 90%
+}
+
+.R8qYlc {
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-color: rgba(97, 97, 97, 0.902);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0, 0.5);
+    transform-origin: inherit
+}
+
+.AZnilc {
+    display: block;
+    position: relative;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 5px 8px 6px;
+    opacity: 0
+}
+
+.RM9ulf.qs41qe .R8qYlc {
+    opacity: 1;
+    transform: scale(1, 1)
+}
+
+.RM9ulf.catR2e .AZnilc {
+    word-wrap: break-word
+}
+
+.RM9ulf.qs41qe .AZnilc {
+    opacity: 1
+}
+
+.RM9ulf.AXm5jc .AZnilc {
+    font-size: 14px;
+    padding: 8px 16px
+}
+
+.RM9ulf.u5lFJe {
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.24, 1, 0.32, 1)
+}
+
+.RM9ulf.u5lFJe .R8qYlc {
+    transition-property: opacity, transform;
+    transition-duration: 50ms, 200ms;
+    transition-timing-function: linear, cubic-bezier(0.24, 1, 0.32, 1)
+}
+
+.RM9ulf.u5lFJe .AZnilc {
+    transition-property: opacity;
+    transition-duration: 150ms;
+    transition-delay: 50ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.6, 1)
+}
+
+.RM9ulf.xCxor {
+    transition-property: opacity;
+    transition-duration: 70ms;
+    transition-delay: 0ms;
+    transition-timing-function: linear
+}
+
+sentinel {}
