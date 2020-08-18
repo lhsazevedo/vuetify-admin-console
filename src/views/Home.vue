@@ -130,15 +130,94 @@ export default {
   data: () => ({
     cards: [
       {
-        icon: '//www.gstatic.com/apps/cpanel/resources/img/dashboard-googblue-48.png',
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/dashboard-googblue-48.png',
         title: 'Dashboard',
         description: 'See relevant insights about your organization',
-        action: '/'
-      }, {
-        icon: '//www.gstatic.com/apps/cpanel/resources/img/people-quantum-48.svg',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/people-quantum-48.svg',
         title: 'Users',
         description: 'Add or manage users',
-        action: { name: 'users' }
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/groups-quantum-48.svg',
+        title: 'Groups',
+        description: 'Create groups and mailing lists',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/images/icons/material/system/2x/account_tree_googblue_48dp.png',
+        title: 'Organizational units',
+        description: 'Add, remove, rename, move or search for an organizational unit',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/ic_domain_googblue_48dp.svg',
+        title: 'Buildings and resources',
+        description: 'Manage and monitor buildings, rooms and resources',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/device-management-quantum-48.svg',
+        title: 'Devices',
+        description: 'Secure corporate data on devices',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/apps-hub-48.png',
+        title: 'Apps',
+        description: 'Manage apps and their settings',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/security-quantum-48.svg',
+        title: 'Security',
+        description: 'Configure security settings',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/reports-quantum-48.svg',
+        title: 'Reports',
+        description: 'Monitor usage across your organization',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/billing-quantum-48.svg',
+        title: 'Billing',
+        description: 'Manage subscriptions and billing',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/account-settings.svg',
+        title: 'Account settings',
+        description: 'Update information about your company',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/admin-roles-quantum-48.svg',
+        title: 'Admin roles',
+        description: 'Manage administrative roles',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/domains-quantum-48.svg',
+        title: 'Domains',
+        description: 'Manage your domains',
+        action: '/404'
+      },
+      {
+        icon: 'https://www.gstatic.com/apps/cpanel/resources/img/migration-quantum-48.svg',
+        title: 'Data migration',
+        description: 'Manage migration',
+        action: '/404'
+      },
+      {
+        icon: 'https://ssl.gstatic.com/apps/cpanel/resources/img/ic_support_48_v2.svg',
+        title: 'Support',
+        description: 'Talk to our support team',
+        action: '/404'
       }
     ]
   })
