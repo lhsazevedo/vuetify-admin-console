@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="#">
+  <a href="https://lhsazevedo.github.io/vuetify-admin-console/">
     <img src=".github/assets/logo.svg" alt="Vuetify Admin Console" width="500" />
   </a>
 </p>
@@ -8,30 +8,21 @@
 </p>
 <p align="center">A work-in-progress Google Admin like dashboard app template</p>
 
-## Demo
+## See it in action
 Demo: https://lhsazevedo.github.io/vuetify-admin-console/
 
-*For now the interface is only available in Brazilian Portuguese.*
+## Features Roadmap
+- [x] Home
+- [ ] Dashboard
+- [ ] Action table
+- [ ] User creation dialog
+- [ ] Settings layout
+- [ ] Internationalization
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Packages and technologies used
+- [Vue.js](https://vuejs.org/) framework
+- [Vue Router](https://router.vuejs.org/)
+- [Vuetify](https://vuetifyjs.com/en/) component library
+- [Material Design Icons](https://materialdesignicons.com)
+- [Icons8](https://icons8.com/)
