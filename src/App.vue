@@ -40,7 +40,7 @@
         solo-inverted
         hide-details
         prepend-inner-icon="mdi-magnify"
-        label="Pesquise usuários, grupos ou configurações"
+        label="Search for users, groups or settings"
         class="hidden-sm-and-down"
       />
 
