@@ -5,10 +5,20 @@ $material-light: (
 );
 
 $headings: (
+  'h6': (
+    'size': 16px
+  ),
   'body-1': (
+    'size': 14px,
     'letter-spacing': 0
   ),
   'body-2': (
+    'size': 13px,
     'letter-spacing': 0
   ),
+  'caption': (
+    'size': 12px
+  )
 );
+
+$list-item-dense-title-font-size: 14px;
